@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Study Buddy</h1>
+    <button id="themeBtn" onclick="toggleTheme()">🌙 Dark Mode</button>
+
+    <p class="subtitle">
+        Ask any study-related question and get an AI-powered answer.
+    </p>
+
+    <textarea
+        id="question"
+        placeholder="Type your question here..."></textarea>
+
+    <button onclick="askAI()">🚀 Ask AI</button>
+
+    <h2>Answer</h2>
+
+    <div id="answer"></div>
+
+    <button id="copyBtn" onclick="copyAnswer()">
+        📋 Copy Answer
+    </button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
