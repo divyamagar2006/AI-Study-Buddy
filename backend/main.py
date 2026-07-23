@@ -30,22 +30,31 @@ app.add_middleware(
 class Question(BaseModel):
     question: str
 
-# API Endpoint
+
+# 👇 ADD THIS HERE
+@app.get("/")
+def home():
+    return {
+        "message": "AI Study Buddy Backend is Running!"
+    }
+
+
+# Existing API Endpoint
 @app.post("/ask")
 def ask(question: Question):
 
     completion = client.chat.completions.create(
         model="openai/gpt-oss-20b",
-       messages=[
-    {
-        "role": "system",
-        "content": "You are AI Study Buddy. Give short, simple answers in 5-8 lines that are easy for students to understand."
-    },
-    {
-        "role": "user",
-        "content": question.question
-    }
-]
+        messages=[
+            {
+                "role": "system",
+                "content": "You are AI Study Buddy. Give short, simple answers in 5-8 lines that are easy for students to understand."
+            },
+            {
+                "role": "user",
+                "content": question.question
+            }
+        ]
     )
 
     answer = completion.choices[0].message.content
