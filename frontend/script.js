@@ -8,9 +8,9 @@ async function askAI() {
     }
 
     document.getElementById("answer").innerHTML =
-"<p style='text-align:center;'>⏳ AI is thinking...</p>";
+        "<p style='text-align:center;'>⏳ AI is thinking...</p>";
 
-    let response = await fetch("http://127.0.0.1:8000/ask", {
+    let response = await fetch("https://ai-study-buddy-production-dfb2.up.railway.app/ask", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -20,10 +20,11 @@ async function askAI() {
         })
     });
 
-   let data = await response.json();
+    let data = await response.json();
 
-document.getElementById("answer").innerHTML = data.answer;
+    document.getElementById("answer").innerHTML = data.answer;
 }
+
 function copyAnswer() {
 
     let answer = document.getElementById("answer").innerText;
@@ -33,16 +34,17 @@ function copyAnswer() {
     alert("✅ Answer copied successfully!");
 
 }
-function toggleTheme(){
+
+function toggleTheme() {
 
     document.body.classList.toggle("dark-mode");
 
     let btn = document.getElementById("themeBtn");
 
-    if(document.body.classList.contains("dark-mode")){
-        btn.innerHTML="☀️ Light Mode";
-    }else{
-        btn.innerHTML="🌙 Dark Mode";
+    if (document.body.classList.contains("dark-mode")) {
+        btn.innerHTML = "☀️ Light Mode";
+    } else {
+        btn.innerHTML = "🌙 Dark Mode";
     }
 
 }
